@@ -30,7 +30,7 @@ export async function GET(request: Request) {
     const after = new URL(request.url).searchParams.get("after");
     let rows: DbMessage[];
     if (after && /^\d+$/.test(after)) {
-      rows = await sql<DbMessage>`
+      rows = await sql`
         SELECT m.id::text AS id, sender.username AS sender, recipient.username AS recipient,
                m.content, m.created_at
         FROM messages m
@@ -40,9 +40,9 @@ export async function GET(request: Request) {
           AND m.id > ${after}::bigint
         ORDER BY m.id ASC
         LIMIT 100
-      `;
+      ` as DbMessage[];
     } else {
-      rows = await sql<DbMessage>`
+      rows = await sql`
         SELECT m.id::text AS id, sender.username AS sender, recipient.username AS recipient,
                m.content, m.created_at
         FROM messages m
@@ -51,7 +51,7 @@ export async function GET(request: Request) {
         WHERE m.recipient_id IS NULL OR m.sender_id = ${user.id} OR m.recipient_id = ${user.id}
         ORDER BY m.id DESC
         LIMIT 100
-      `;
+      ` as DbMessage[];
       rows.reverse();
     }
     return jsonResponse({ messages: rows.map(toMessage) });
