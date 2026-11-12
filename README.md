@@ -1,16 +1,16 @@
 # LAN Chat Application
 
-A Java 17 client-server chat application built with Swing, sockets, threads, and JDBC with SQLite.
+A Java 25 client-server chat application built with Swing, sockets, threads, and JDBC with SQLite.
 
 ## Requirements
 
-- Java 17 or later
+- Java 25 (the current Java LTS release)
 - Apache Maven 3.9 or later
 - Network access to Maven Central the first time Maven downloads SQLite JDBC and build plugins
 
 ## Build and run
 
-1. Install Java 17 and Maven, then open a terminal in this folder.
+1. Install Java 25 and Maven, then open a terminal in this folder.
 2. On the computer that will host the chat, run:
 
    ```powershell
