@@ -1,0 +1,8 @@
+target/
+data/
+logs/
+.m2/
+tools/
+*.db
+*.db-shm
+*.db-wal
