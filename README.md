@@ -16,6 +16,17 @@ The two editions have separate accounts, databases, and chat histories; messages
 - Maven 3.9 or newer, either on `PATH` or at `tools/apache-maven-3.10.0/`
 - Internet access on the first build so Maven can download dependencies
 
+To check the prerequisites, download Java dependencies, and install the
+optional web client's packages, run:
+
+```powershell
+py .\requirement.py
+```
+
+Use `py .\requirement.py --skip-web` for the Java edition only. The script
+does not install JDK or Node.js itself; install those runtimes first and add
+them to `PATH` (or set `JAVA_HOME` for Java).
+
 ### Run the server and clients
 
 1. On the computer that will host the chat, run:
